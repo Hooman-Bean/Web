@@ -1,0 +1,37 @@
+﻿<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <script src="javascripts/hangman.js"></script>
+    <meta charset="utf-8" />
+    <title></title>
+</head>
+<body>
+    <canvas id="myCanvas" width="800" height="400"
+            style="border:1px solid #c3c3c3;">
+        Your browser does not support the canvas element.
+    </canvas>
+
+    <script>
+
+        var canvas = document.getElementById("myCanvas");
+        var ctx = canvas.getContext("2d");
+        let h = new Hangman("banana", ctx);
+                                //event type   function
+        document.addEventListener('keydown', (e) => {
+            console.log(e.key, e.keyCode);
+            if (e.keyCode >= 65 && e.keyCode <= 90) {
+                h.guess(e.key);
+            }
+        });
+        
+        
+        //ctx.fillStyle = "#FF0000";
+
+        ///let hm = new Hangman(ctx);
+        
+
+    </script>
+
+</body>
+</html>
