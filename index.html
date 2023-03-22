@@ -1,12 +1,106 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+/* Style the header */
+header {
+  background-color: #666;
+  padding: 30px;
+  text-align: center;
+  font-size: 35px;
+  color: white;
+}
+
+/* Create two columns/boxes that floats next to each other */
+nav {
+  float: top;
+  background: #333;
+  padding: 20px;
+  text-align: center;
+}
+
+/* Style the list inside the menu */
+nav ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+}
+
+li {
+  float: left;
+}
+
+li a {
+  display: block;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+
+article {
+  float: left;
+  padding: 20px;
+  width: 70%;
+  background-color: #f1f1f1;
+  height: 300px; /* only for demonstration, should be removed */
+}
+
+/* Clear floats after the columns */
+section::after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+/* Style the footer */
+footer {
+  background-color: #777;
+  padding: 10px;
+  text-align: center;
+  color: white;
+}
+
+/* Responsive layout - makes the two columns/boxes stack on top of each other instead of next to each other, on small screens */
+@media (max-width: 600px) {
+  nav{
+    width: auto;
+    height: auto;
+  }
+  }
+  </style>
+
     <script src="https://github.com/Hooman-Bean/Web/blob/7b18a11d65bf512f5fd6060618f877be1ab8413d/hangman.js"></script>
     <meta charset="utf-8" />
     <title></title>
 </head>
 <body>
+    <header>
+        <h1>Projects</h1>
+    </header>
+    <nav>
+        <ul>
+        <li><a href="#p1">Project 1</a></li>
+        <li><a href="#p2">Project 2</a></li>
+        <li><a href="#p3">Project 3</a></li>
+        </ul>
+    </nav>
+    <div id="p1">
+<h2>Project 1: Hangman</h2>
+<h3> Description: Simple Keyboard input hangman game</h3>
+<h4> Programing Language used: HTML, CSS, and Javascript</h4>
     <canvas id="myCanvas" width="800" height="600"
             style="border:1px solid #c3c3c3;">
         Your browser does not support the canvas element.
@@ -39,7 +133,74 @@
         }
 
     </script>
+    </div>
+    <div id="p2">
+<h2> Project 2: CPU Sheduler</h2>
+<h3> Description:  Analysis of different types of Scheduling Algorithms on basis of performance on an Operating System</h3>
+<h4> Programing Language used: C++</h4>
+<embed
+	src="CPU_Sheduler_Project_Sayantan_Manik.pdf"
+	type="application/pdf"
+	width="800"
+	height="800"
+/>
+    </div>
 
+    <div id="p3">
+<h2> Project 3: Regex Matcher</h2>
+<h3> Description: Enter a regex and test it using your input</h3>
+<h4> Programing Language used: Java</h4>
+<div data-pym-src='https://www.jdoodle.com/plugin' data-language="java"
+    data-version-index="4" data-libs="mavenlib1, mavenlib2">
+    import java.util.*;
+import java.util.regex.Pattern;
+import java.util.regex.Matcher;
+
+public class Tester {    //test "harness"
+
+    public static void main(String[] args) {
+        //System.out.println("My dog your dogerel his dog ".replaceAll("dog","cat"));
+        //System.out.println("My dog your dogerel his dog".replaceAll("\\bdog\\b","cat"));
+        //String x = "aaabaa"; x = x.replaceAll("a*?","aa"); System.out.println("x=="+x+"==");
+
+              
+        Scanner sc = new Scanner(System.in);
+        while (true) {
+            System.out.print("Enter regex: ");
+            String re = sc.nextLine().trim();
+            if (re.length() == 0) {
+                break;
+            }
+            Pattern p = Pattern.compile(re);
+
+            while (true) {
+                System.out.println("Enter a line of text to search (xxx)");
+                String text = sc.nextLine();
+                if (text.equals("xxx")) {
+                    break;
+                }
+                System.out.println("testlength =" + text.length());
+                Matcher m = p.matcher(text);
+
+                System.out.println("Match = " + m.matches());
+                m.reset();
+
+                boolean $found = false;
+                while (m.find()) {
+
+                    System.out.printf("found ==%s== at %d end at %d\n", m.group(), m.start(), m.end());
+                    $found = true;
+                }
+                if (!$found) {
+                    System.out.println("No match found");
+                }
+            }
+        }
+    }
+}
+  </div>
+  <script src="https://www.jdoodle.com/assets/jdoodle-pym.min.js" type="text/javascript"></script>
+    </div>
 
 </body>
 </html>
