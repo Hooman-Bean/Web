@@ -1,4 +1,4 @@
-
+ 
 class Hangman {
     constructor(word, ctx) {
         this.ctx = ctx;
@@ -13,20 +13,15 @@ class Hangman {
             this.guessed[i] = false;
         }
         this.guessesWrong = 0;
-        //this.guessesLeft = ;
+
         this.ctx.font = '50px arial';
-        //this.ctx.strokeText("b a n a n a", 150, 250);
+
         this.ctx.strokeText(this.underscores, 150, 250);
-        //an array that holds functions
-        //we will use them to draw
+
         this.drawFunctions = [this.drawBase, this.drawRope, this.drawHead, this.drawBody,
         this.drawLeg1, this.drawLeg2, this.drawArms];
     }
 
-    //improvements:
-    //stop allowing guesses when the games over
-
-    //more user interaction
 
 
     guess(letter) {
@@ -50,8 +45,7 @@ class Hangman {
             }
         } else {
 
-            //the first thing we draw is at 9 guess left
-            //call the function inside our drawFunctions array
+
             this.ctx.beginPath();
             this.drawFunctions[this.guessesWrong](this.ctx);
             this.guessesWrong++;
@@ -66,7 +60,6 @@ class Hangman {
 
     }
 
-    //what do we want to name them?
     drawBase(ctx) {
         //BASE
         ctx.moveTo(200, 200);
@@ -87,7 +80,6 @@ class Hangman {
     drawHead(ctx) {
         //HEAD
         //center
-        //x   y  rad   start radians    ending radians
         ctx.arc(175, 70, 10, 1.5 * Math.PI, 3.5 * Math.PI);
     }
 
